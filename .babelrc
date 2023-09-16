@@ -1,0 +1,5 @@
+// it will remove sonsole.log
+{
+    "plugins": [["transform-remove-console",
+    { "exclude": ["error", "warn"] }]] 
+}
