@@ -7,11 +7,11 @@ import Footer from "./components/footer";
 
 const AppLayout = () => {
       return (
-          <>
-         <Header/>
-         <Body/>
-         <Footer/>
-         </>
+        <>
+           <Header/>
+           <Body/>
+           <Footer/>
+        </>
       )
   }
   
