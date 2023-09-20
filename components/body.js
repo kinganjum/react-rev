@@ -49,10 +49,15 @@ import Shimmer from "./shimmer.js";  //shimmer Ui learn more abt it (2.21.00)
    // if restaurant is empty => shimmer UI
    // if restaurant has data => actual data UI
 
-   if(filteredrestaurant?.length == 0) return <h1>No results found !!</h1>;
+  //  if(filteredrestaurant?.length == 0) return <h1>No results found !!</h1>;
 
-  return (allrestaurants.length == 0 ) ? <Shimmer/> : (
+   return ( // allrestaurants.length == 0 ) ? <Shimmer/> : (
   <>
+    
+    {
+      !allrestaurants.length ? <Shimmer/> : <div className='restaurant-list'></div>   // shimmer effect.
+    }
+
     <div className="search-container">
       <input type="text" 
       className="search-input" 

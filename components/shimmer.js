@@ -1,6 +1,26 @@
-const Shimmer = () => {
-    return <h1>shimmer UI loadingggg.... suiiiiiiiiiiii</h1>;
-    
-}
+import React from 'react'
 
-export default Shimmer;
+import './shimmer.css';
+
+
+export default function Shimmer() {
+  return (
+    <div className='restaurant-list'>
+        <div className='card  shimmer-card'></div>
+        <div className='card  shimmer-card'></div>
+        <div className='card  shimmer-card'></div>
+        <div className='card  shimmer-card'></div>
+        <div className='card  shimmer-card'></div>
+        <div className='card  shimmer-card'></div>
+        <div className='card  shimmer-card'></div>
+        <div className='card  shimmer-card'></div>
+        <div className='card  shimmer-card'></div>
+        <div className='card  shimmer-card'></div>
+        <div className='card  shimmer-card'></div>
+        <div className='card  shimmer-card'></div>
+        <div className='card  shimmer-card'></div>
+        <div className='card  shimmer-card'></div>
+        <div className='card  shimmer-card'></div>
+    </div>
+  )
+}
