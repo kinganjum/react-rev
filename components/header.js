@@ -1,3 +1,11 @@
+import { useState } from "react";
+
+const loggedinuser = () => {
+  // API Call Here 
+  return false;
+
+}
+
 export const Logo = () => (
     <a href="/">
     <img className="logo"
@@ -7,6 +15,9 @@ export const Logo = () => (
                     
                     
 export const Header = () => {
+
+  const [isLoggedIn, setisLoggedIn] = useState(false);
+
   return (
   <div className="header">
         <Logo/>         
@@ -18,6 +29,11 @@ export const Header = () => {
               <li>Cart</li>
                 </ul>
              </div>
+             {
+              isLoggedIn ? <button onClick={()=> setisLoggedIn(false)}>Log-Out</button> : <button  onClick={()=> setisLoggedIn(true)}>Log-In</button>
+             }
+            
+             
         </div>
         );    
     };
