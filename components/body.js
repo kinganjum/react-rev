@@ -51,11 +51,11 @@ import Shimmer from "./shimmer.js";  //shimmer Ui learn more abt it (2.21.00)
 
   //  if(filteredrestaurant?.length == 0) return <h1>No results found !!</h1>;
 
-   return ( // allrestaurants.length == 0 ) ? <Shimmer/> : (
+   return ( 
   <>
     
     {
-      !allrestaurants.length ? <Shimmer/> : <div className='restaurant-list'></div>   // shimmer effect.
+      !allrestaurants.length ? <Shimmer/> : <div className='restaurant-list'></div> //We first check if allrestaurants is empty and show the shimmer effect if it is.
     }
 
     <div className="search-container">
@@ -80,10 +80,11 @@ import Shimmer from "./shimmer.js";  //shimmer Ui learn more abt it (2.21.00)
 
     </div>
       <div className="restaurant-list">
-      { //We first check if allrestaurants is empty and show the shimmer effect if it is.
+      { 
         // Inside the <div className="restaurant-list">, we check if filteredrestaurant is empty. If it is, we display the "No results found !!" message.
         // If filteredrestaurant is not empty, we map over it and render the RestaurantCard components for each restaurant as before.
-        filteredrestaurant.length === 0 ? (
+        
+          filteredrestaurant.length === 0 ? (
           <h1>No results found !!</h1>
         ) : (
           filteredrestaurant.map((restaurant) => (
