@@ -70,14 +70,6 @@ import Shimmer from "./shimmer.js";  //shimmer Ui learn more abt it (2.21.00)
       <button 
       className="search-btn" 
       onClick={() => {
-        // if (SearchClicked === "true") // (1.48.00)
-        // {
-        //   setSearchClicked("false");
-        // } else 
-        // {
-        //   setSearchClicked("true");
-        // }
-        
       // need to filter the data :-
       const data = filterData(SearchText, allrestaurants);
       // update the state - restaurant variable
@@ -88,13 +80,17 @@ import Shimmer from "./shimmer.js";  //shimmer Ui learn more abt it (2.21.00)
 
     </div>
       <div className="restaurant-list">
-      {/* {here we have to do code for search not found.  } */}
-      {filteredrestaurant?.map((restraurant) => {
-        return (
-          <RestrauntCard {...restraurant?.info} key={restraurant?.info?.id} />
-        );
-      })}
-      
+      { //We first check if allrestaurants is empty and show the shimmer effect if it is.
+        // Inside the <div className="restaurant-list">, we check if filteredrestaurant is empty. If it is, we display the "No results found !!" message.
+        // If filteredrestaurant is not empty, we map over it and render the RestaurantCard components for each restaurant as before.
+        filteredrestaurant.length === 0 ? (
+          <h1>No results found !!</h1>
+        ) : (
+          filteredrestaurant.map((restaurant) => (
+            <RestrauntCard {...restaurant?.info} key={restaurant?.info?.id} />
+          ))
+        )
+      }
      </div>
   </>
   );
