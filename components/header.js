@@ -1,10 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-const loggedinuser = () => {
-  // API Call Here 
-  return false;
-
-}
 
 export const Logo = () => (
     <a href="/">
@@ -23,10 +19,19 @@ export const Header = () => {
         <Logo/>         
         <div className="nav-iteams">
           <ul> 
-              <li>Home</li>
-              <li>About</li>
-              <li>Contact</li>
-              <li>Cart</li>
+              <Link to="/">
+                  <li>Home</li>
+              </Link>
+              
+              <Link to="/about">
+                  <li>About</li>
+              </Link>
+
+              <Link to="/contact">
+                  <li>Contact</li>
+              </Link>
+                
+                  <li>Cart</li>
                 </ul>
              </div>
              {

@@ -2,6 +2,8 @@ import  { RestrauntList }  from "./config";
 import  RestrauntCard  from "./RestaurantCard";
 import { useState, useEffect } from "react"; //1.07.11 hooks
 import Shimmer from "./shimmer.js";  //shimmer Ui learn more abt it (2.21.00)
+import { Link } from "react-router-dom";
+
   //1.09
   //what is hooks
   //what is state
@@ -39,11 +41,11 @@ import Shimmer from "./shimmer.js";  //shimmer Ui learn more abt it (2.21.00)
    async function getRestaurant () {
     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.686184&lng=74.221784&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
      setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);          // option chaining(?) (1.55.00)
      setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);   
   }
-   console.log("render");
+  //  console.log("render");
 
    // conditional rendering :- (2.17.00)
    // if restaurant is empty => shimmer UI
@@ -87,12 +89,14 @@ import Shimmer from "./shimmer.js";  //shimmer Ui learn more abt it (2.21.00)
           filteredrestaurant.length === 0 ? (
           <h1>No results found !!</h1>
         ) : (
-          filteredrestaurant.map((restaurant) => (
-            <RestrauntCard {...restaurant?.info} key={restaurant?.info?.id} />
-          ))
-        )
-      }
-     </div>
+          filteredrestaurant.map((restaurant) => 
+          (
+           <Link to={"/restaurant/" + restaurant?.info?.id} key={restaurant?.info?.id}> 
+            <RestrauntCard {...restaurant?.info} key={restaurant?.info?.id}/>
+            </Link>
+          )
+          ))}
+      </div>
   </>
   );
 };
