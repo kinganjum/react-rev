@@ -3,24 +3,13 @@ import  RestrauntCard  from "./RestaurantCard";
 import { useState, useEffect } from "react"; //1.07.11 hooks
 import Shimmer from "./shimmer.js";  //shimmer Ui learn more abt it (2.21.00)
 import { Link } from "react-router-dom";
+import { filterData } from "../Utils/helper";
+import useOnline from "../Utils/useOnline";
 
   //1.09
   //what is hooks
   //what is state
   //what is useState() it is most popular and imp hook.
-  
-
-  // how below fn works (2.00.11)
-  function filterData(searchText, restaurant) {
-    const filterData = restaurant.filter((restaurant) => restaurant?.info?.name?.toLowerCase()?.includes(searchText.toLowerCase())  // here we used toLowerCase to match the search input even if user search in upper or lower case.(2.44.29)
-    );
-    return filterData;
-  }
-    
-
-
-
-
  const Body = () => {
   //  const SearhText = "hellow"; // this how u created in js (1.27.50) & below is how in react
   
@@ -45,20 +34,27 @@ import { Link } from "react-router-dom";
      setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);          // option chaining(?) (1.55.00)
      setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);   
   }
+const isOnline = useOnline();
+  if(!isOnline) {
+    return <h1>offline check your interner connection</h1>;
+  }
+
+  
   //  console.log("render");
 
    // conditional rendering :- (2.17.00)
    // if restaurant is empty => shimmer UI
    // if restaurant has data => actual data UI
 
-  //  if(filteredrestaurant?.length == 0) return <h1>No results found !!</h1>;
+  if(!allrestaurants) return nulll;
 
-   return ( 
+  return allrestaurants?.length === 0 ? (
+    <Shimmer/> ) : (
   <>
     
-    {
-      !allrestaurants.length ? <Shimmer/> : <div className='restaurant-list'></div> //We first check if allrestaurants is empty and show the shimmer effect if it is.
-    }
+    {/* 
+       !allrestaurants.length ? <Shimmer/> : <div className='restaurant-list'></div> //We first check if allrestaurants is empty and show the shimmer effect if it is. 
+      */}
 
     <div className="search-container">
       <input type="text" 
