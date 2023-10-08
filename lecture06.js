@@ -1,18 +1,18 @@
 import React, { lazy, Suspense } from "react"; 
 import ReactDOM from "react-dom/client"; 
-import {Header} from "./components/header";  
-import Body from "./components/body.js";
-import Footer from "./components/footer";
-import About from "./components/About";
-import Error from "./components/Error";
-import Contact from "./components/Contact";
-import RestaurantMenu from "./components/RestaurantMenu";
+import { Header } from "./src/components/header.js";  
+import Body from "./src/components/body.js";
+import Footer from "./src/components/footer.js";
+import About from "./src/components/About.js";
+import Error from "./src/components/Error.js";
+import Contact from "./src/components/Contact.js";
+import RestaurantMenu from "./src/components/RestaurantMenu.js";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 // import Instamart from "./components/Instamart";
-import Shimmer from "./components/shimmer";
+import Shimmer from "./src/components/shimmer.js";
 
 
-const Instamart = lazy( () => import("./components/Instamart")); //dynamic import. lazy import
+const Instamart = lazy( () => import("./src/components/Instamart.js")); //dynamic import. lazy import
 // upon on demand loading --> upon render --> suspend loading
 
 const AppLayout = () => {

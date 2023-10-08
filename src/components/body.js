@@ -6,22 +6,13 @@ import { Link } from "react-router-dom";
 import { filterData } from "../Utils/helper";
 import useOnline from "../Utils/useOnline";
 
-  //1.09
-  //what is hooks
-  //what is state
-  //what is useState() it is most popular and imp hook.
+ 
  const Body = () => {
-  //  const SearhText = "hellow"; // this how u created in js (1.27.50) & below is how in react
-  
-  // const [SearchText, setSearchText] = useState("hellow");
-
-  //searchText is a local variable. and below fn is react function(how to create a fn in react)
+ 
   const [allrestaurants, setAllRestaurants] = useState([]);
   const [filteredrestaurant, setFilteredRestaurants] = useState([]);
-  const [SearchText, setSearchText] = useState(""); // to create state vairables. it comes from react lib. and this is equivalent to const text = "kingAu".
-
-  //empty dependency array [] => once after render
-  // dependency array [searchText]=> once after initialize render + everytime after rerender
+  const [SearchText, setSearchText] = useState(""); 
+ 
    useEffect(()=> {
       //API call here (1.38.00)
       getRestaurant();
@@ -40,25 +31,20 @@ const isOnline = useOnline();
   }
 
   
-  //  console.log("render");
+  
+  if(!allrestaurants) return null;
 
-   // conditional rendering :- (2.17.00)
-   // if restaurant is empty => shimmer UI
-   // if restaurant has data => actual data UI
-
-  if(!allrestaurants) return nulll;
-
-  return allrestaurants?.length === 0 ? (
-    <Shimmer/> ) : (
+   return allrestaurants?.length === 0 ? (
+  <Shimmer/> ) : (
   <>
     
     {/* 
        !allrestaurants.length ? <Shimmer/> : <div className='restaurant-list'></div> //We first check if allrestaurants is empty and show the shimmer effect if it is. 
       */}
 
-    <div className="search-container">
+    <div className="search-container p-5 bg- bg-pink-50 m-4">
       <input type="text" 
-      className="search-input" 
+      className="focus:bg-green-400 p-2 m-2" 
       placeholder="search here" 
       value={SearchText}
       onChange = {(e) =>{  //from this e property we can read whatever we are typing in searchbar.
@@ -66,7 +52,7 @@ const isOnline = useOnline();
         
       }}/>
       <button 
-      className="search-btn" 
+      className="p-2 m-2 bg- bg-purple-900 hover:bg-gray-500 text-white rounded-lg" 
       onClick={() => {
       // need to filter the data :-
       const data = filterData(SearchText, allrestaurants);
@@ -77,7 +63,7 @@ const isOnline = useOnline();
       >search</button> 
 
     </div>
-      <div className="restaurant-list">
+      <div className="flex flex-wrap bg-gray-600">
       { 
         // Inside the <div className="restaurant-list">, we check if filteredrestaurant is empty. If it is, we display the "No results found !!" message.
         // If filteredrestaurant is not empty, we map over it and render the RestaurantCard components for each restaurant as before.
