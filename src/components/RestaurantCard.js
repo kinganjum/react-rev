@@ -2,7 +2,7 @@ import { IMG } from "./config"
 import React from "react";
 
 
-const RestrauntCard = ({name,cuisines,cloudinaryImageId,areaName,locality}) => {
+const RestrauntCard = ({name,cuisines,cloudinaryImageId,areaName,locality}) => { 
   
     return (
     <div className="w-[200px] p-2 m-2 shadow-lg bg- bg-green-200">

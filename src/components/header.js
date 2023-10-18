@@ -15,7 +15,7 @@ export const Header = () => {
   const [isLoggedIn, setisLoggedIn] = useState(false);
 
   return (
-  <div className="flex justify-between  bg-pink-50 shadow-lg sm:bg-purple-300 md:bg-yellow-200">
+  <div className="flex justify-between  bg-pink-50 shadow-lg sm:bg-purple-300 md:bg-yellow-200"> 
         <Logo/>         
         <div className="nav-iteams">
           <ul className="flex py-10"> 

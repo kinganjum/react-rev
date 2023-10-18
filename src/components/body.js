@@ -44,7 +44,7 @@ const isOnline = useOnline();
 
     <div className="search-container p-5 bg- bg-pink-50 m-4">
       <input type="text" 
-      className="focus:bg-green-400 p-2 m-2" 
+      className="focus:bg-green-400 p-2 m-2 " 
       placeholder="search here" 
       value={SearchText}
       onChange = {(e) =>{  //from this e property we can read whatever we are typing in searchbar.
